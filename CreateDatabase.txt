@@ -1,0 +1,122 @@
+
+-- !!!!!--****Before create a table first of all create a database with HepsiburadaOrderDatabase name and then you can start to create tables****--!!!!!
+
+
+CREATE TABLE [dbo].[HepsiburadaCommissions] (
+    [Id]       BIGINT        IDENTITY (1, 1) NOT NULL,
+    [currency] VARCHAR (250) NULL,
+    [amount]   FLOAT (53)    NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+CREATE TABLE [dbo].[HepsiburadaMerchantTotalPrices] (
+    [Id]       BIGINT        IDENTITY (1, 1) NOT NULL,
+    [currency] VARCHAR (250) NULL,
+    [amount]   FLOAT (53)    NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[HepsiburadaMerchantUnitPrices] (
+    [Id]       BIGINT        IDENTITY (1, 1) NOT NULL,
+    [currency] VARCHAR (250) NULL,
+    [amount]   FLOAT (53)    NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+CREATE TABLE [dbo].[HepsiburadaPrices] (
+    [Id]       BIGINT        IDENTITY (1, 1) NOT NULL,
+    [currency] VARCHAR (250) NULL,
+    [amount]   FLOAT (53)    NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[HepsiburadaTotalHBDiscounts] (
+    [Id]       BIGINT        IDENTITY (1, 1) NOT NULL,
+    [currency] VARCHAR (250) NULL,
+    [amount]   FLOAT (53)    NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[HepsiburadaTotalPrices] (
+    [Id]       BIGINT        IDENTITY (1, 1) NOT NULL,
+    [currency] VARCHAR (250) NULL,
+    [amount]   FLOAT (53)    NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[HepsiburadaUnitHBDiscounts] (
+    [Id]       BIGINT        IDENTITY (1, 1) NOT NULL,
+    [currency] VARCHAR (250) NULL,
+    [amount]   FLOAT (53)    NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[HepsiburadaItems] (
+    [Id]               BIGINT        IDENTITY (1, 1) NOT NULL,
+    [lineItemId]       VARCHAR (250) NULL,
+    [listingId]        VARCHAR (250) NULL,
+    [merchantId]       VARCHAR (250) NULL,
+    [hbSku]            VARCHAR (250) NULL,
+    [merchantSku]      VARCHAR (250) NULL,
+    [quantity]         BIGINT        NULL,
+    [vat]              FLOAT (53)    NULL,
+    [cargoPaymentInfo] VARCHAR (250) NULL,
+    [customizedText01] VARCHAR (250) NULL,
+    [customizedText02] VARCHAR (250) NULL,
+    [customizedText03] VARCHAR (250) NULL,
+    [customizedText04] VARCHAR (250) NULL,
+    [properties]       VARCHAR (250) NULL,
+    [productName]      VARCHAR (250) NULL,
+    [orderNumber]      VARCHAR (250) NULL,
+    [orderDate]        DATETIME      NULL,
+    [deliveryType]     VARCHAR (250) NULL,
+    [customerDelivery] VARCHAR (250) NULL,
+    [pickupTime]       TIME (7)      NULL,
+    [gtip]             VARCHAR (250) NULL,
+    [weight]           FLOAT (53)    NULL,
+    [vatRate]          BIGINT        NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([Id]) REFERENCES [dbo].[HepsiburadaPrices] ([Id]),
+    FOREIGN KEY ([Id]) REFERENCES [dbo].[HepsiburadaTotalPrices] ([Id]),
+    FOREIGN KEY ([Id]) REFERENCES [dbo].[HepsiburadaCommissions] ([Id]),
+    FOREIGN KEY ([Id]) REFERENCES [dbo].[HepsiburadaUnitHBDiscounts] ([Id]),
+    FOREIGN KEY ([Id]) REFERENCES [dbo].[HepsiburadaTotalHBDiscounts] ([Id]),
+    FOREIGN KEY ([Id]) REFERENCES [dbo].[HepsiburadaMerchantUnitPrices] ([Id]),
+    FOREIGN KEY ([Id]) REFERENCES [dbo].[HepsiburadaMerchantTotalPrices] ([Id])
+);
+
+CREATE TABLE [dbo].[HepsiburadaOrders] (
+    [Id1]                   BIGINT        IDENTITY (1, 1) NOT NULL,
+    [id]                    VARCHAR (250) NULL,
+    [status]                VARCHAR (250) NULL,
+    [customerId]            VARCHAR (250) NULL,
+    [orderDate]             DATETIME      NULL,
+    [dueDate]               DATETIME      NULL,
+    [barcode]               VARCHAR (250) NULL,
+    [packageNumber]         VARCHAR (250) NULL,
+    [cargoCompany]          VARCHAR (250) NULL,
+    [shippingAddressDetail] VARCHAR (250) NULL,
+    [recipientName]         VARCHAR (250) NULL,
+    [shippingCountryCode]   VARCHAR (250) NULL,
+    [shippingDistrict]      VARCHAR (250) NULL,
+    [shippingTown]          VARCHAR (250) NULL,
+    [shippingCity]          VARCHAR (250) NULL,
+    [email]                 VARCHAR (250) NULL,
+    [phoneNumber]           VARCHAR (250) NULL,
+    [companyName]           VARCHAR (250) NULL,
+    [billingAddress]        VARCHAR (250) NULL,
+    [billingCity]           VARCHAR (250) NULL,
+    [billingTown]           VARCHAR (250) NULL,
+    [billingDistrict]       VARCHAR (250) NULL,
+    [taxOffice]             VARCHAR (250) NULL,
+    [taxNumber]             VARCHAR (250) NULL,
+    [identityNo]            VARCHAR (250) NULL,
+    [shippingTotalPrice]    FLOAT (53)    NULL,
+    [customsTotalPrice]     FLOAT (53)    NULL,
+    [totalPriceId]          BIGINT        NULL,
+    [itemsId]               BIGINT        NULL,
+    PRIMARY KEY CLUSTERED ([Id1] ASC),
+    FOREIGN KEY ([Id1]) REFERENCES [dbo].[HepsiburadaItems] ([Id])
+);
