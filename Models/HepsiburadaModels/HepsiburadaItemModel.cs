@@ -12,7 +12,6 @@ namespace HepsiburadaOrderService.Models.HepsiburadaModels
         [Key]
         public long Id { get; set; }
         public string lineItemId { get; set; }
-
         public string merchantId { get; set; }
         public string hbSku { get; set; }
         public string merchantSku { get; set; }
@@ -33,17 +32,11 @@ namespace HepsiburadaOrderService.Models.HepsiburadaModels
         public string gtip { get; set; }
         public double weight { get; set; }
         public long vatRate { get; set; }
-
-
-
     }
 
-    public class propertiess
+    public class Propertiess
     {
         [Key]
         public long Id { get; set; }
-
     }
-
-
 }

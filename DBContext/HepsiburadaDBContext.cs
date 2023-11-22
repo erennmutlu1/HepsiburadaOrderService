@@ -20,7 +20,6 @@ namespace HepsiburadaOrderService.DBContext
         public DbSet<HepsiburadaTotalPriceModel> HepsiburadaTotalPrices { get; set; }
         public DbSet<HepsiburadaUnitHBDiscountModel> HepsiburadaUnitHBDiscounts { get; set; }
 
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             _ = optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HepsiburadaOrderDatabase;Integrated Security=True");

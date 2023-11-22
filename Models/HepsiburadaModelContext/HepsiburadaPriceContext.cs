@@ -9,7 +9,6 @@ namespace HepsiburadaOrderService.Models.HepsiburadaContext
 {
    public class HepsiburadaPriceContext
     {
-
         [Key]
         public long Id { get; set; }
         public string currency { get; set; }

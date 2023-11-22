@@ -46,10 +46,5 @@ namespace HepsiburadaOrderService.Models.HepsiburadaContext
         public string customsTotalPrice { get; set; }
         public TotalPrice totalPrice { get; set; }
         public List<Item> items { get; set; }
-      
-
-
-
-
     }
 }

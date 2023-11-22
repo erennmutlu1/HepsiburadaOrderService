@@ -120,6 +120,4 @@ namespace HepsiburadaOrderService.Context
         public TotalPrice totalPrice { get; set; }
         public List<Item> items { get; set; }
     }
-
-
 }
