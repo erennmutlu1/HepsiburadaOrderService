@@ -1,6 +1,5 @@
 # HepsiburadaOrderService
 
-E-commerce backend microservice for Hepsiburada Company.It can take and log to database the information of customers which has completed to pay their orders.
-It has developed with .Net Core 5.0 Worker Services.
+An e-commerce backend microservice designed for Hepsiburada, capable of capturing and logging customer information upon successful order payments. Developed using .NET 7 Worker Services.
 
-<b>Do Not Forget to Read "CreateDatabase.txt" File and Enter the "apiUsername","apiPassword","merchantId"</b>
+<b>Don't forget to read the "CreateDatabase.txt" file and enter the required "apiUsername," "apiPassword," and "merchantId."</b>
